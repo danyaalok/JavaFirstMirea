@@ -5,8 +5,8 @@ import java.awt.event.*;
 import javax.swing.*;
 
 public class Window extends JFrame {
-    String team_name_1 = "Russia";
-    String team_name_2 = "Italy";
+    String team_name_1 = "Ukraine";
+    String team_name_2 = "Russia";
     int team_1=0;
     int team_2=0;
     JPanel[] pnl = new JPanel[4];
@@ -17,9 +17,13 @@ public class Window extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         for (int i=0;i< pnl.length;i++){
             pnl[i] = new JPanel();
-            pnl[i].setBackground(new Color(210,200,255));
+            //pnl[i].setBackground(new Color(210,200,255));
             add(pnl[i]);
         }
+        pnl[0].setBackground(new Color(0,0,250));
+        pnl[1].setBackground(new Color(0,0,250));
+        pnl[2].setBackground(new Color(255,255,0));
+        pnl[3].setBackground(new Color(255,255,0));
 
         pnl[0].setLayout(new BorderLayout());
         pnl[0].add(new JLabel("Result: " + team_1 + " " + team_2, SwingConstants.CENTER));
@@ -28,11 +32,17 @@ public class Window extends JFrame {
         pnl[1].add(new JLabel("Last Scorer: ", SwingConstants.CENTER));
 
         pnl[2].setLayout(new BorderLayout());
-        JButton button_1 = new JButton("Team_1");
+        JButton button_1 = new JButton(team_name_1);
+        button_1.setBackground(new Color(255,255,0));
+        button_1.setBorderPainted(false);
+        button_1.setFocusPainted(false);
         ActionListener action_1 = new Action_1();
         button_1.addActionListener(action_1);
 
-        JButton button_2 = new JButton("Team_2");
+        JButton button_2 = new JButton(team_name_2);
+        button_2.setBackground(new Color(255,255,0));
+        button_2.setBorderPainted(false);
+        button_2.setFocusPainted(false);
         ActionListener action_2 = new Action_2();
         button_2.addActionListener(action_2);
 
@@ -42,7 +52,7 @@ public class Window extends JFrame {
         pnl[3].setLayout(new BorderLayout());
         pnl[3].add(new JLabel("Winner: ", SwingConstants.CENTER));
 
-        setSize(500,500);
+        setSize(1000,500);
         setVisible(true);
     }
 
@@ -51,6 +61,7 @@ public class Window extends JFrame {
             team_1++;
             pnl[0].removeAll();
             JLabel result = new JLabel("Result: " + team_1 + " " + team_2, SwingConstants.CENTER);
+
             pnl[0].add(result);
             pnl[0].updateUI();
 
