@@ -65,7 +65,7 @@ public class Menu extends JFrame {
         JMenu font = new JMenu("Font");
         JMenuItem font_1 = new JMenuItem("TimesRoman");
         JMenuItem font_2 = new JMenuItem("Courier");
-        JMenuItem font_3 = new JMenuItem("Arial");
+        JMenuItem font_3 = new JMenuItem("Algerian");
         font.add(font_1);
         font.addSeparator();
         font.add(font_2);
@@ -89,14 +89,12 @@ public class Menu extends JFrame {
         font_3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                text.setFont(new Font("Arial",Font.PLAIN, 20));
+                text.setFont(new Font("Algerian",Font.PLAIN, 20));
             }
         });
         
         return font;
     }
 
-    public static void main(String[] args) {
-        new Menu();
-    }
+    public static void main(String[] args) { new Menu(); }
 }
