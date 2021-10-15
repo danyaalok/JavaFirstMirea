@@ -51,7 +51,9 @@ public class Main {
     public static void main(String[] args) {
         Main test = new Main();
         System.out.println("");
+        System.out.println("Testing of ArrayList");
         test.ArrayTest();
+        System.out.println("Testing of LinkedList");
         test.LinkedTest();
     }
 }
