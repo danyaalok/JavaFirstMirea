@@ -1,77 +1,108 @@
 package ru.mirea.task22;
 
+enum ChairType { Vic, Mag, Mul }
+
+class ChairFactory {
+    public Chair CreateChair(ChairType type) {
+        Chair chair = null;
+
+        switch (type) {
+            case Vic:
+                chair = new V_Chair();
+                break;
+
+            case Mag:
+                chair = new Mag_Chair();
+                break;
+
+            case Mul:
+                chair = new Mul_Chair();
+                break;
+        }
+
+        return chair;
+    }
+}
+
 interface Chair {
     public void SetMaterial();
+    public void SetName();
+    public String getName();
 }
-
-interface ChairFactory { public Chair createChair(); }
-
-class V_Chair_F { public V_Chair createChair() { return new V_Chair(); } }
 
 class V_Chair implements Chair {
-    private String material;
+    private String material, name;
+    public V_Chair() { this.SetMaterial(); this.SetName(); }
 
-    @Override
     public void SetMaterial() { this.material = "wood"; }
-}
-
-class Mul_Chair_F { public Mul_Chair createChair() { return new Mul_Chair(); } }
-
-class Mul_Chair implements Chair {
-    private String material;
 
     @Override
-    public void SetMaterial() { this.material = "aluminium"; }
-}
+    public void SetName() { this.name = "Victorian"; }
 
-class Mag_Chair_F { public Mag_Chair createChair() { return new Mag_Chair(); } }
+    @Override
+    public String getName() { return name; }
+}
 
 class Mag_Chair implements Chair {
-    private String material;
+    private String material, name;
+    public Mag_Chair() { this.SetMaterial(); this.SetName(); }
+
+    public void SetMaterial() { this.material = "diamond"; }
 
     @Override
-    public void SetMaterial() { this.material = "diamond"; }
+    public void SetName() { this.name = "Magic"; }
+
+    @Override
+    public String getName() { return name; }
+}
+
+class Mul_Chair implements Chair {
+    private String material, name;
+    public Mul_Chair() { this.SetMaterial(); this.SetName(); }
+
+    public void SetMaterial() { this.material = "aluminium"; }
+
+    @Override
+    public void SetName() { this.name = "Multifunctional"; }
+
+    @Override
+    public String getName() { return name; }
 }
 
 class Client {
-    private boolean sit_ = false;
+    private boolean sit = false;
     private Chair chair;
 
-    public void sit(Chair chair) {
-        if (sit_) System.out.println("I'm sitting on the another chair!");
+    void Sit(Chair chair) {
+        if (sit) System.out.println("I'm sitting on the another chair!");
         else {
-            System.out.println("I've sat down on the chair!");
+            System.out.println("I've sat down on " + chair.getName() + " chair!");
             this.chair = chair;
-            sit_ = true;
+            sit = true;
         }
     }
 
     public void stand()  {
-        if (!sit_) System.out.println("I've already stood up!");
+        if (!sit) System.out.println("I've already stood up!");
         else {
-            System.out.println("I've stood up from the chair!");
-            this.sit_ = false;
+            System.out.println("I've stood up from " + chair.getName() + " chair!");
+            this.sit = false;
         }
     }
 }
 
-
-public class Main {
+public class Main{
     public static void main(String[] args) {
-        V_Chair_F chair_1 = new V_Chair_F();
-        Mag_Chair_F chair_2 = new Mag_Chair_F();
-        Mul_Chair_F chair_3 = new Mul_Chair_F();
+        Chair chair1 = new V_Chair();
+        Chair chair2 = new Mul_Chair();
+        Chair chair3 = new Mag_Chair();
 
         Client cl = new Client();
 
-        Chair chair1 = chair_1.createChair();
-        Chair chair2 = chair_2.createChair();
-        Chair chair3 = chair_3.createChair();
-
-        cl.sit(chair1);
-        cl.sit(chair2);
+        cl.Sit(chair1);
+        cl.Sit(chair2);
         cl.stand();
-        cl.sit(chair2);
+        cl.Sit(chair2);
         cl.stand();
         cl.stand();
     }
