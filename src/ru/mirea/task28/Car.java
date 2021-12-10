@@ -34,6 +34,7 @@ public class Car {
             @Override
             public void data() { System.out.println("Car: " + super.model + " " + super.type.type + " " + super.type.speed + " " + super.year + " " + super.price); }
         };
+
         System.out.println();
         mercedes.data();
     }
