@@ -30,9 +30,8 @@ public class Car {
         bmw.data();
 
         Car mercedes = new Car(new Type("Hatchback", 180), "Mercedes", 2017, 4500000) {
-
             @Override
-            public void data() { System.out.println("Car: " + super.model + " " + super.type.type + " " + super.type.speed + " " + super.year + " " + super.price); }
+            public void data() { System.out.println("Car -> " + model + " " + type.type + " " + type.speed + " " + year + " " + price); }
         };
 
         System.out.println();
