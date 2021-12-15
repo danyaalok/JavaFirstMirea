@@ -36,7 +36,7 @@ public class Store {
 
         if ((INN.length() < 12) || (INN.length() > 12)) throw new IllegalAccessException("Wrong INN!");
 
-        System.out.println("You'are successfully bought the product, darling! See u soon!");
+        System.out.println("You're successfully bought the product, darling! See u soon!");
     }
 
     public static void main(String[] args) {
