@@ -1,0 +1,30 @@
+@startuml
+'https://plantuml.com/class-diagram
+class Shape{}
+
+class Circle implements Shape{
+    private int radius;
+    int Square();
+    int Length()
+}
+
+class Rectangle implements Shape {
+    private int width;
+    private int length;
+    Rectangle();
+    int Square();
+}
+
+class Triangle implements Shape {
+    private int a;
+    private int b;
+    private int c;
+    void int Square();
+    void int Perimetr();
+}
+
+class Main {
+    public static void main();
+}
+
+@enduml
