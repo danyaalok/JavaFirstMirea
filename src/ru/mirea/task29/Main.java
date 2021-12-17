@@ -59,13 +59,13 @@ public class Main {
 
         CurrencyInfo currencyInfo = new CurrencyInfo(UserId, UserPassword, UserBalance);
 
-        FileOutputStream outputStream = new FileOutputStream("C:\\Programming projects\\Java\\TestFile.ser");
+        FileOutputStream outputStream = new FileOutputStream("TestFile.ser");
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
 
         objectOutputStream.writeObject(currencyInfo);
         objectOutputStream.close();
 
-        FileInputStream fileInputStream = new FileInputStream("C:\\Programming projects\\Java\\TestFile.ser");
+        FileInputStream fileInputStream = new FileInputStream("TestFile.ser");
         ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
 
         CurrencyInfo currencyInfo2 = (CurrencyInfo) objectInputStream.readObject();
