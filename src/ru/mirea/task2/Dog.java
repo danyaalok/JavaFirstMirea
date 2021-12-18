@@ -7,6 +7,7 @@ public class Dog {
     public Dog(String name, int age){
         this.age=age;
         this.name=name;
+        Human_Dog();
     }
 
     public String getName() {
@@ -26,7 +27,7 @@ public class Dog {
     }
 
     public void Human_Dog(){
-        this.human_age=this.age * 7;
+        this.human_age = this.age * 7;
     }
 
     @Override

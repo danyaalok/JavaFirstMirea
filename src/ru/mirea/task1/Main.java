@@ -40,7 +40,7 @@ public class Main {
 class Main1 {
     public static void main(String[] args) {
         for (String str : args)
-            System.out.println("argument = " + str);
+            System.out.println("аргумент = " + str);
     }
 }
 
@@ -74,7 +74,7 @@ class Main3 {
 class Main4 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.print("Enter the number: ");
+        System.out.print("Введите целое число: ");
         int a = sc.nextInt(), s = 1;
         for (int i = 2; i <= a; i++)
             s *= i;
